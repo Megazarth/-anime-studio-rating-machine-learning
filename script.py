@@ -32,6 +32,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
 # %% [code]
+
+
+# %% [code]
 animeCleanedFilePath = "../input/myanimelist/anime_cleaned.csv"
 data = pd.read_csv(animeCleanedFilePath)
 data.head()
@@ -54,6 +57,14 @@ y = newDf['studio']
 print(X.shape)
 # print(y.head())
 print(y.shape)
+
+# %% [code]
+g = sns.pairplot(newDf, hue='studio', markers='+')
+plt.show()
+
+# %% [code]
+g = sns.violinplot(y='score', x='studio', data=newDf, inner='quartile')
+plt.show()
 
 # %% [code]
 k_range = list(range(1,50))
